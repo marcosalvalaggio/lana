@@ -1,0 +1,12 @@
+[package]
+name = "lana"
+version = "0.0.2"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "lana"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = "0.18.3"

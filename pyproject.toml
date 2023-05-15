@@ -1,0 +1,24 @@
+[build-system]
+requires = ["maturin>=0.15,<0.16"]
+build-backend = "maturin"
+
+[project]
+name = "lana"
+description = "Blazingly fast linear algebra experiment"
+authors = [
+  { name = "Marco Salvalaggio", email = "mar.salvalaggio@gmail.com" },
+]
+license = { file = "LICENSE" }
+requires-python = ">=3.7"
+keywords = ["linear algebra"]
+classifiers = [
+    "Programming Language :: Rust",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+]
+
+[project.urls]
+Repository = "https://github.com/marcosalvalaggio/lana"
+
+[tool.maturin]
+features = ["pyo3/extension-module"]
