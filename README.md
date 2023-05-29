@@ -11,7 +11,7 @@
                   |||  |||
 ```
 
-**L**inear **a**lgebra for **n**octurnal and **a**dventurous data scientists.
+**L***inear* **a***lgebra* *for* **n***octurnal and* **a***dventurous data scientists.*
 
 ## Install 
 
