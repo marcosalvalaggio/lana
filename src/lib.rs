@@ -1,23 +1,36 @@
-use std::collections::HashMap;
 use pyo3::prelude::*;
 
-#[pyfunction]
-fn count_words(s: String) -> Py<PyAny> {
-    let mut hm = HashMap::new();
-    for sub_str in s.split(' ') {
-        let count = hm
-            .entry(sub_str)
-            .or_insert(0);
-        *count += 1;
-    }
-    
-    return Python::with_gil(|py| {
-        hm.to_object(py)
-    });
+#[pyclass]
+pub struct Matrix {
+    #[pyo3(get, set)]
+    data: Vec<Vec<f64>>,
 }
+
+
+#[pymethods]
+impl Matrix {
+
+    #[staticmethod]
+    pub fn zeros(dimensions: (usize, usize)) -> Self {
+        let (rows, cols) = dimensions;
+        let data: Vec<Vec<f64>> = vec![vec![0.0; cols]; rows];
+        Matrix { data }
+    }
+
+    pub fn print(&self) {
+        for row in &self.data {
+            for i in row {
+                print!("{} ", i);
+            }
+            println!();
+        }
+    }
+
+}
+
 
 #[pymodule]
 fn lana(_py: Python, m: &PyModule) -> PyResult<()> {
-    m.add_function(wrap_pyfunction!(count_words, m)?)?;
+    m.add_class::<Matrix>()?;
     Ok(())
 }

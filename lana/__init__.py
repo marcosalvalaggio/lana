@@ -1,5 +1,5 @@
-from .lana import count_words
+from .lana import Matrix
 
 __all__ = [
-    "count_words",
+    "Matrix",
 ]

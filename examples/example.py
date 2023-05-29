@@ -1,4 +1,5 @@
-import lana
+from lana import Matrix
 
-result = lana.count_words("test word count")
-print(result)
+a = Matrix.zeros((3,3))
+a.print()
+print(a.data)
