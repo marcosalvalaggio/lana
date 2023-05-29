@@ -1,10 +1,10 @@
 from lana import Matrix
 
-mat = Matrix.zeros((3,3))
-print(mat)
-print(f"shape: {mat.shape}, type: {type(mat)}")
+zeros = Matrix.zeros((3,3))
+print(zeros)
+print(f"shape: {zeros.shape}, type: {type(zeros)}")
 
-for rows in mat.data:
+for rows in zeros.data:
     print(rows)
 
 

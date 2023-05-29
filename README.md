@@ -24,12 +24,10 @@ pip install lana
 ```python
 from lana import Matrix
 
-print("# zeros #")
-mat = Matrix.zeros((3,3))
-print(mat)
-print(f"shape: {mat.shape}, type: {type(mat)}")
+zeros = Matrix.zeros((3,3))
+print(zeros)
+print(f"shape: {zeros.shape}, type: {type(zeros)}")
 
-print("# matrix #")
 mat = Matrix.matrix([[1,2,3],[4,5,6]])
 print(mat)
 print(f"shape: {mat.shape}, type: {type(mat)}")
