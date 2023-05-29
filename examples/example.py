@@ -1,11 +1,13 @@
 from lana import Matrix
 
+print("# zeros #")
 mat = Matrix.zeros((3,3))
-mat.print()
-print(f"shape: {mat.shape}, type: {type(mat.shape)}")
+print(mat)
+print(f"shape: {mat.shape}, type: {type(mat)}")
 
+print("# matrix #")
 mat = Matrix.matrix([[1,2,3],[4,5,6]])
-mat.print()
-print(mat.shape, type(mat))
+print(mat)
+print(f"shape: {mat.shape}, type: {type(mat)}")
 for rows in mat.data:
-    print(rows)
+    print(rows, type(rows))

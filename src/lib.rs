@@ -1,6 +1,7 @@
 use pyo3::prelude::*;
 
 #[pyclass]
+#[derive(Debug)]
 pub struct Matrix {
     #[pyo3(get, set)]
     data: Vec<Vec<f64>>,
@@ -29,16 +30,18 @@ impl Matrix {
         (rows, cols)
     }
 
-    pub fn print(&self) {
-        for row in &self.data {
-            for i in row {
-                print!("{} ", i);
-            }
-            println!();
-        }
+    // pub fn print(&self) {
+    //     for row in self.data.iter() {
+    //         println!("{:?}", row);
+    //     }
+    // }
+
+    fn __repr__(&self) -> PyResult<String> {
+        Ok(format!("{:?}", self.data))
     }
 
 }
+
 
 
 #[pymodule]
