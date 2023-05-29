@@ -17,6 +17,11 @@ impl Matrix {
         Matrix { data }
     }
 
+    #[staticmethod]
+    pub fn matrix(data: Vec<Vec<f64>>) -> Self {
+        Matrix { data } 
+    }
+
     #[getter]
     pub fn shape(&self) -> (usize, usize) {
         let rows = self.data.len();
