@@ -17,6 +17,13 @@ impl Matrix {
         Matrix { data }
     }
 
+    #[getter]
+    pub fn shape(&self) -> (usize, usize) {
+        let rows = self.data.len();
+        let cols = self.data[0].len();
+        (rows, cols)
+    }
+
     pub fn print(&self) {
         for row in &self.data {
             for i in row {
