@@ -19,6 +19,21 @@ impl Matrix {
     }
 
     #[staticmethod]
+    pub fn ones(dimensions: (usize, usize)) -> Self {
+        let (rows, cols) = dimensions;
+        let data: Vec<Vec<f64>> = vec![vec![1.0; cols]; rows];
+        Matrix { data }
+    }
+
+    #[staticmethod]
+    pub fn eye(size: usize) -> Self {
+        let data: Vec<Vec<f64>> = (0..size).map(|i| {
+            (0..size).map(|j| if i==j {1.0} else {0.0}).collect()
+        }).collect();
+        Matrix { data }
+    }
+
+    #[staticmethod]
     pub fn matrix(data: Vec<Vec<f64>>) -> Self {
         Matrix { data } 
     }
