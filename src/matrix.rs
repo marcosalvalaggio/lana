@@ -88,9 +88,21 @@ impl Matrix {
     pub fn __sub__(&self, other: &Matrix) -> Matrix {
         assert_eq!(self.data.len(), other.data.len());
         assert_eq!(self.data[0].len(), other.data[0].len());
-        let other_neg: Matrix = other.__neg__();
-        let result: Matrix = self.__add__(&other_neg);
-        result
+        // VANILLA
+        // let other_neg: Matrix = other.__neg__();
+        // let result: Matrix = self.__add__(&other_neg);
+        // result
+        let result: Vec<Vec<f64>> = self
+        .data
+        .par_iter()
+        .zip(other.data.par_iter())
+        .map(|(row1, row2)| {
+            row1.par_iter()
+                .zip(row2.par_iter())
+                .map(|(elem1, elem2)| elem1 - elem2)
+                .collect()
+        }).collect();
+        Matrix { data: result }
     }
 
     pub fn __getitem__(&self, index: usize) -> PyResult<Vec<f64>> {
