@@ -15,3 +15,4 @@ d = c - a
 print(d)
 e = -d 
 print(e)
+print(e.shape, type(e))
