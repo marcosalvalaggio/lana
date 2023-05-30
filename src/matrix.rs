@@ -1,4 +1,5 @@
 use pyo3::prelude::*;
+use rayon::prelude::*;
 
 #[pyclass]
 #[derive(Debug)]
@@ -47,22 +48,40 @@ impl Matrix {
     pub fn __add__(&self, other: &Matrix) -> Matrix {
         assert_eq!(self.data.len(), other.data.len());
         assert_eq!(self.data[0].len(), other.data[0].len());
-        let mut result: Vec<Vec<f64>> = vec![vec![0.0; self.data[0].len()]; self.data.len()];
-        for i in 0..self.data.len() {
-            for j in 0..self.data[0].len() {
-                result[i][j] = self.data[i][j] + other.data[i][j];
-            }
-        } 
+        // VANILLA 
+        // let mut result: Vec<Vec<f64>> = vec![vec![0.0; self.data[0].len()]; self.data.len()];
+        // for i in 0..self.data.len() {
+        //     for j in 0..self.data[0].len() {
+        //         result[i][j] = self.data[i][j] + other.data[i][j];
+        //     }
+        // } 
+        // Perform matrix addition in parallel
+        let result: Vec<Vec<f64>> = self
+            .data
+            .par_iter()
+            .zip(other.data.par_iter())
+            .map(|(row1, row2)| {
+                row1.par_iter()
+                    .zip(row2.par_iter())
+                    .map(|(elem1, elem2)| elem1 + elem2)
+                    .collect()
+            }).collect();
         Matrix { data: result }
     }
 
     pub fn __neg__(&self) -> Matrix {
-        let mut result: Vec<Vec<f64>> = vec![vec![0.0; self.data[0].len()]; self.data.len()];
-        for i in 0..self.data.len() {
-            for j in 0..self.data[0].len() {
-                result[i][j] = self.data[i][j] * -1.;
-            }
-        } 
+        // VANILLA
+        // let mut result: Vec<Vec<f64>> = vec![vec![0.0; self.data[0].len()]; self.data.len()];
+        // for i in 0..self.data.len() {
+        //     for j in 0..self.data[0].len() {
+        //         result[i][j] = self.data[i][j] * -1.;
+        //     }
+        // } 
+        let result: Vec<Vec<f64>> = self
+            .data
+            .par_iter()
+            .map(|row| row.iter().map(|elem| -*elem).collect())
+            .collect();
         Matrix { data: result }
     }
 

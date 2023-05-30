@@ -4,7 +4,7 @@ build-backend = "maturin"
 
 [project]
 name = "lana"
-description = "Linear Algebra experimental library"
+description = "Experimental Linear Algebra library written in Rust"
 authors = [
   { name = "Marco Salvalaggio", email = "mar.salvalaggio@gmail.com" },
 ]
