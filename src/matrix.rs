@@ -56,6 +56,24 @@ impl Matrix {
         Matrix { data: result }
     }
 
+    pub fn __neg__(&self) -> Matrix {
+        let mut result: Vec<Vec<f64>> = vec![vec![0.0; self.data[0].len()]; self.data.len()];
+        for i in 0..self.data.len() {
+            for j in 0..self.data[0].len() {
+                result[i][j] = self.data[i][j] * -1.;
+            }
+        } 
+        Matrix { data: result }
+    }
+
+    pub fn __sub__(&self, other: &Matrix) -> Matrix {
+        assert_eq!(self.data.len(), other.data.len());
+        assert_eq!(self.data[0].len(), other.data[0].len());
+        let other_neg: Matrix = other.__neg__();
+        let result: Matrix = self.__add__(&other_neg);
+        result
+    }
+
     pub fn __getitem__(&self, index: usize) -> PyResult<Vec<f64>> {
         match self.data.get(index) {
             Some(row) => Ok(row.clone()),

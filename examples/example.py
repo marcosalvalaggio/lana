@@ -8,8 +8,10 @@ for row in zeros:
     print(row, type(row))
 
 a = Matrix.ones((2,3))
-print(a)
 b = Matrix.matrix([[2,2,2],[2,2,2]])
-print(b)
 c = a + b
 print(c)
+d = c - a
+print(d)
+e = -d 
+print(e)
