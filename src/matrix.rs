@@ -45,6 +45,13 @@ impl Matrix {
         (rows, cols)
     }
 
+    pub fn __getitem__(&self, index: usize) -> PyResult<Vec<f64>> {
+        match self.data.get(index) {
+            Some(row) => Ok(row.clone()),
+            None => Err(pyo3::exceptions::PyIndexError::new_err("Index out of range")),
+        }
+    }
+
     fn __repr__(&self) -> PyResult<String> {
         Ok(format!("{:?}", self.data))
     }

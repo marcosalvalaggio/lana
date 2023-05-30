@@ -1,15 +1,4 @@
-## Lana
-
-```console
-    .-.'  `; `-._  __  _
-   (_,         .-:'  `; `-._
- ,'o"(        (_,           )
-(__,-'      ,'o"(            )>
-   (       (__,-'            )
-    `-'._.--._(             )
-       |||  |||`-'._.--._.-'
-                  |||  |||
-```
+## Lana 🧶
 
 [![stability-wip](https://img.shields.io/badge/stability-wip-lightgrey.svg)](https://github.com/mkenney/software-guides/blob/master/STABILITY-BADGES.md#work-in-progress) 
 
@@ -33,7 +22,7 @@ print(f"shape: {zeros.shape}, type: {type(zeros)}")
 mat = Matrix.matrix([[1,2,3],[4,5,6]])
 print(mat)
 print(f"shape: {mat.shape}, type: {type(mat)}")
-for rows in mat.data:
+for rows in mat:
     print(rows, type(rows))
 ```
 
