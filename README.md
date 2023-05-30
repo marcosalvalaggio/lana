@@ -18,6 +18,7 @@ from lana import Matrix
 zeros = Matrix.zeros((3,3))
 print(zeros)
 print(f"shape: {zeros.shape}, type: {type(zeros)}")
+print(zeros[0], zeros[0][0])
 
 mat = Matrix.matrix([[1,2,3],[4,5,6]])
 print(mat)
