@@ -1,6 +1,7 @@
 use pyo3::prelude::*;
 use rayon::prelude::*;
 
+
 #[pyclass]
 #[derive(Debug)]
 pub struct Matrix {
@@ -44,6 +45,7 @@ impl Matrix {
 
         Matrix { data } 
     }
+    
 
     #[getter]
     pub fn shape(&self) -> (usize, usize) {
@@ -103,6 +105,10 @@ impl Matrix {
         Matrix { data: result }
     }
 
+    pub fn to_list(&self) -> Vec<Vec<f64>> {
+        self.data.clone()
+    }
+
     // pub fn __getitem__(&self, index: usize) -> PyResult<Vec<f64>> {
     //     match self.data.get(index) {
     //         Some(row) => Ok(row.clone()),
@@ -110,46 +116,46 @@ impl Matrix {
     //     }
     // }
 
-    pub fn __getitem__(&self, index: Vec<usize>) -> PyResult<Matrix> {
+    // pub fn __getitem__(&self, index: Vec<usize>) -> PyResult<Matrix> {
         
-        match index.len() {
-            1 => {
-                let i = index[0];
-                match self.data.get(i) {
-                    Some(row) => Ok(Matrix::matrix(vec![row.clone()])),
-                    None => Err(pyo3::exceptions::PyIndexError::new_err("Index out of range")),
-                }
-            },
-            2 => {
-                let start = index[0];
-                let stop = index[1];
-                let step = 1;
-                let mut result = Vec::new();
-                for i in (start..stop).step_by(step) {
-                    match self.data.get(i) {
-                        Some(row) => result.push(row.clone()),
-                        None => return Err(pyo3::exceptions::PyIndexError::new_err("Index out of range")),
-                    }
-                }
-                Ok(Matrix::matrix(result))
-            },
-            3 => {
-                let start = index[0];
-                let stop = index[1];
-                let step = index[2];
-                let mut result = Vec::new();
-                for i in (start..stop).step_by(step) {
-                    match self.data.get(i) {
-                        Some(row) => result.push(row.clone()),
-                        None => return Err(pyo3::exceptions::PyIndexError::new_err("Index out of range")),
-                    }
-                }
-                Ok(Matrix::matrix(result))
-            },
-            _ => Err(pyo3::exceptions::PyTypeError::new_err("Invalid index")),
-        }
-    }
- 
+    //     match index.len() {
+    //         1 => {
+    //             let i = index[0];
+    //             match self.data.get(i) {
+    //                 Some(row) => Ok(Matrix::matrix(vec![row.clone()])),
+    //                 None => Err(pyo3::exceptions::PyIndexError::new_err("Index out of range")),
+    //             }
+    //         },
+    //         2 => {
+    //             let start = index[0];
+    //             let stop = index[1];
+    //             let step = 1;
+    //             let mut result = Vec::new();
+    //             for i in (start..stop).step_by(step) {
+    //                 match self.data.get(i) {
+    //                     Some(row) => result.push(row.clone()),
+    //                     None => return Err(pyo3::exceptions::PyIndexError::new_err("Index out of range")),
+    //                 }
+    //             }
+    //             Ok(Matrix::matrix(result))
+    //         },
+    //         3 => {
+    //             let start = index[0];
+    //             let stop = index[1];
+    //             let step = index[2];
+    //             let mut result = Vec::new();
+    //             for i in (start..stop).step_by(step) {
+    //                 match self.data.get(i) {
+    //                     Some(row) => result.push(row.clone()),
+    //                     None => return Err(pyo3::exceptions::PyIndexError::new_err("Index out of range")),
+    //                 }
+    //             }
+    //             Ok(Matrix::matrix(result))
+    //         },
+    //         _ => Err(pyo3::exceptions::PyTypeError::new_err("Invalid index")),
+    //     }
+    // }
+
 
     pub fn __repr__(&self) -> String {
 
