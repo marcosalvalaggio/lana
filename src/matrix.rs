@@ -110,8 +110,30 @@ impl Matrix {
         }
     }
 
-    fn __repr__(&self) -> PyResult<String> {
-        Ok(format!("{:?}", self.data))
-    }
+    pub fn __repr__(&self) -> String {
+
+        let mut result = String::new();
+    
+        for (i, row) in self.data.iter().enumerate() {
+            if i == 0 {
+                result.push_str("Matrix([");
+            }
+            result.push_str("[");
+            for (j, val) in row.iter().enumerate() {
+                if j != 0 {
+                    result.push_str(", ");
+                }
+                result.push_str(&val.to_string());
+            }
+            result.push_str("]");
+            if i != self.data.len() - 1 {
+                result.push_str(",\n       ");
+            } else {
+                result.push_str("])");
+            }
+        }
+        
+        result
+    }    
 
 }
