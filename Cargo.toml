@@ -13,4 +13,9 @@ pyo3 = { version = "0.18.3", features = ["extension-module"] }
 rayon = "1.7"
 
 [profile.release]
+codegen-units = 1
+debug = false
+incremental = false
+lto = "thin"
 opt-level = 3
+panic = "abort"
