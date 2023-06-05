@@ -13,4 +13,4 @@ pyo3 = { version = "0.18.3", features = ["extension-module"] }
 rayon = "1.7"
 
 [profile.release]
-opt-level = "3"
+opt-level = 3
