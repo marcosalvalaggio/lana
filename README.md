@@ -2,8 +2,7 @@
 
 [![stability-wip](https://img.shields.io/badge/stability-wip-lightgrey.svg)](https://github.com/mkenney/software-guides/blob/master/STABILITY-BADGES.md#work-in-progress) 
 
-*<span style="font-weight:bold;color:blue;">L</span>inear* <span style="font-weight:bold;color:red;">a</span>lgebra for *<span style="font-weight:bold;color:green;">n</span>octurnal* and *<span style="font-weight:bold;color:orange;">a</span>dventurous* data scientists.
-
+<em><span style="font-weight:bold;color:blue;">L</span>inear</em> <span style="font-weight:bold;color:red;">a</span>lgebra for <em><span style="font-weight:bold;color:green;">n</span>octurnal</em> and <em><span style="font-weight:bold;color:orange;">a</span>dventurous</em> data scientists.
 
 ## Install 
 
