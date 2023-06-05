@@ -13,7 +13,7 @@ pip install lana
 ## Example 
 
 ```python
-from lana import Matrix
+from lana import Matrix, inject
 
 zeros = Matrix.zeros((3,3))
 print(zeros)
@@ -25,5 +25,9 @@ print(mat)
 print(f"shape: {mat.shape}, type: {type(mat)}")
 for rows in mat.to_list():
     print(rows, type(rows))
+
+submat = Matrix.matrix(inject(mat.to_list()[0]))
+print(submat)
+print(submat.shape, type(submat))
 ```
 
