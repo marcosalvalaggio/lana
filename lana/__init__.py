@@ -1,7 +1,23 @@
 from typing import Union, List
 from .lana import Matrix
 
-def inject(data: Union[float, int, List, List[List]]):
+
+def inject(data: Union[float, int, List, List[List]]) -> List[List[float]]:
+    """
+    Injects the input data into a matrix.
+
+    Args:
+        data (Union[float, int, List, List[List]]): The data to be injected into the matrix.
+            If data is a float or int, a 1x1 matrix with the data value is returned.
+            If data is a list of lists, it is assumed to be a matrix and returned as is.
+            If data is a list, it is treated as a single row matrix.
+
+    Returns:
+        List[List[float]]: The injected matrix.
+
+    Raises:
+        TypeError: If the input data is not of the expected types.
+    """
     if isinstance(data, float) or isinstance(data, int):
         matrix = [[float(data)]]
         return matrix
@@ -12,7 +28,8 @@ def inject(data: Union[float, int, List, List[List]]):
             matrix = [data]
             return matrix
     else: 
-        raise TypeError("check the input data")
+        raise TypeError("Please verify the input data.")
+
 
 __all__ = [
     "Matrix",
