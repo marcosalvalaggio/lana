@@ -31,3 +31,14 @@ print(submat)
 print(submat.shape, type(submat))
 ```
 
+## Manual Build
+
+To build a package wheel, run the following command:
+
+```console
+pip install maturin
+git clone https://github.com/marcosalvalaggio/lana.git
+cd lana
+maturin build --sdist
+maturin develop
+```

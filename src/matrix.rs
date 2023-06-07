@@ -112,6 +112,11 @@ impl Matrix {
         Matrix { data: result }
     } 
 
+    pub fn __matmul__(&self, other: &Matrix) {
+        assert_eq!(self.data[0].len(), other.data.len());
+        //
+    }
+
     pub fn to_list(&self) -> Vec<Vec<f64>> {
         self.data.clone()
     }
