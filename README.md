@@ -10,6 +10,18 @@
 pip install lana
 ```
 
+## Manual Build
+
+To build a package wheel, run the following command:
+
+```console
+pip install maturin
+git clone https://github.com/marcosalvalaggio/lana.git
+cd lana
+maturin build --sdist
+maturin develop
+```
+
 ## Example 
 
 ```python
@@ -29,16 +41,4 @@ for rows in mat.to_list():
 submat = Matrix.matrix(inject(mat.to_list()[0]))
 print(submat)
 print(submat.shape, type(submat))
-```
-
-## Manual Build
-
-To build a package wheel, run the following command:
-
-```console
-pip install maturin
-git clone https://github.com/marcosalvalaggio/lana.git
-cd lana
-maturin build --sdist
-maturin develop
 ```
