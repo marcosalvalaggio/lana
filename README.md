@@ -4,6 +4,8 @@
 
 **L***inear* **A**lgebra for **n***octurnal* *and* **a**dventurous *data scientists.*
 
+Lana is simply a repository for testing Python/Rust bindings and reproducing, on a micro scale, some of the functionalities of the great NumPy package. It's a work-in-progress memetic project aimed at having fun and learning new things.
+
 ## Install 
 
 ```console
