@@ -8,6 +8,8 @@ Lana is simply a repository for testing Python/Rust bindings and reproducing, on
 
 ## Install 
 
+Make sure you have the Rust language toolchain ([cargo](https://doc.rust-lang.org/cargo/getting-started/installation.html)) installed on your machine, and then:
+
 ```console
 pip install lana
 ```
