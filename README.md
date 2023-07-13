@@ -1,6 +1,6 @@
 ## Lana 🧶
 
-[![stability-wip](https://img.shields.io/badge/stability-wip-lightgrey.svg)](https://github.com/mkenney/software-guides/blob/master/STABILITY-BADGES.md#work-in-progress) 
+![maintenance-status](https://img.shields.io/badge/maintenance-experimental-blue.svg)
 
 **L***inear* **A**lgebra for **n***octurnal* *and* **a**dventurous *data scientists.*
 
